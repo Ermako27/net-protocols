@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.20)  24 FEB 2022 00:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.20)  24 FEB 2022 08:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -610,7 +610,7 @@ Preview: Fontsize 10pt
 Preview: PDFoutput 1
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (282.99033pt too wide) in paragraph at lines 69--69
+Overfull \hbox (236.22096pt too wide) in paragraph at lines 72--72
 [][] 
  []
 
@@ -618,16 +618,16 @@ Preview: Tightpage 0 0 0 0
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 (tex/includes/network_gv.aux) ) 
 Here is how much of TeX's memory you used:
- 16143 strings out of 482657
- 353406 string characters out of 5957837
- 594809 words of memory out of 5000000
- 30865 multiletter control sequences out of 15000+600000
+ 16148 strings out of 482657
+ 353450 string characters out of 5957837
+ 594812 words of memory out of 5000000
+ 30870 multiletter control sequences out of 15000+600000
  532338 words of font info for 24 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  60i,7n,76p,441b,712s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr10.pfb>
-Output written on tex/includes/network_gv.pdf (1 page, 16215 bytes).
+Output written on tex/includes/network_gv.pdf (1 page, 16629 bytes).
 PDF statistics:
  15 PDF objects out of 1000 (max. 8388607)
  10 compressed objects within 1 object stream
