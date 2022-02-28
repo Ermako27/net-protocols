@@ -1,0 +1,134 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{header.tex}
+
+\title{Отчёт по лабораторной работе \\ <<Механизмы протокола TCP>>}
+\author{Здесь Ф.~И.~О}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% Текст отчёта должен быть читаемым!!! Написанное здесь является рыбой.
+
+\section{Установка и разрыв соединения}
+
+Вывод tcpdump при установке соединения от с1 до с6
+\begin{Verbatim}
+14:36:28.003927 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [S], seq 2237042055, win 64240, options [mss 1460,sackOK,TS val 1256467007 ecr 0,nop,wscale 7], length 0
+14:36:28.004191 IP 10.50.0.2.1996 > 10.10.0.2.36912: Flags [S.], seq 1393844325, ack 2237042056, win 65160, options [mss 536,sackOK,TS val 2060647298 ecr 1256467007,nop,wscale 7], length 0
+14:36:28.004273 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [.], ack 1, win 502, options [nop,nop,TS val 1256467007 ecr 2060647298], length 0
+\end{Verbatim}
+
+Вывод tcpdump с с3 c включенным MSS clamp при установке соединения от с1 до с6:
+\begin{Verbatim}
+14:36:28.003979 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [S], seq 2237042055, win 64240, options [mss 1460,sackOK,TS val 1256467007 ecr 0,nop,wscale 7], length 0
+14:36:28.004168 IP 10.50.0.2.1996 > 10.10.0.2.36912: Flags [S.], seq 1393844325, ack 2237042056, win 65160, options [mss 536,sackOK,TS val 2060647298 ecr 1256467007,nop,wscale 7], length 0
+14:36:28.004290 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [.], ack 1, win 502, options [nop,nop,TS val 1256467007 ecr 2060647298], length 0
+\end{Verbatim}
+
+Вывод tcpdump с c2 при закрытии соединения на с1
+\begin{Verbatim}
+14:36:28.003979 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [S], seq 2237042055, win 64240, options [mss 1460,sackOK,TS val 1256467007 ecr 0,nop,wscale 7], length 0
+14:36:28.004168 IP 10.50.0.2.1996 > 10.10.0.2.36912: Flags [S.], seq 1393844325, ack 2237042056, win 65160, options [mss 536,sackOK,TS val 2060647298 ecr 1256467007,nop,wscale 7], length 0
+14:36:28.004290 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [.], ack 1, win 502, options [nop,nop,TS val 1256467007 ecr 2060647298], length 0
+\end{Verbatim}
+
+Вывод tcpdumpс c2 при закрытии соединения на с1:
+\begin{Verbatim}
+14:43:08.035884 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [F.], seq 8, ack 8, win 502, options [nop,nop,TS val 1256867039 ecr 2061037865], length 0
+14:43:08.036067 IP 10.50.0.2.1996 > 10.10.0.2.36912: Flags [F.], seq 8, ack 9, win 510, options [nop,nop,TS val 2061047330 ecr 1256867039], length 0
+14:43:08.036111 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [.], ack 9, win 502, options [nop,nop,TS val 1256867039 ecr 2061047330], length 0
+\end{Verbatim}
+
+Вывод tcpdumpс c3 c включенным MSS clamp при закрытии соединения на с1:
+\begin{Verbatim}
+14:43:08.035905 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [F.], seq 8, ack 8, win 502, options [nop,nop,TS val 1256867039 ecr 2061037865], length 0
+14:43:08.036050 IP 10.50.0.2.1996 > 10.10.0.2.36912: Flags [F.], seq 8, ack 9, win 510, options [nop,nop,TS val 2061047330 ecr 1256867039], length 0
+14:43:08.036120 IP 10.10.0.2.36912 > 10.50.0.2.1996: Flags [.], ack 9, win 502, options [nop,nop,TS val 1256867039 ecr 2061047330], length 0
+\end{Verbatim}
+
+\section{Окно получателя}
+
+Где что дампим.  Дампить без -t обязательно!
+
+\begin{Verbatim}
+окно получателя до нуля
+\end{Verbatim}
+
+\section{Окно отправителя}
+
+Где что дампим.
+
+\begin{Verbatim}
+окно отправителя растёт и растёт
+\end{Verbatim}
+
+\section{Нейгл и Мишналь}
+
+Где что дампим.  Дампить без -t обязательно!
+Мы должны увидеть, что мы посылаем неполный сегмент, как только подтверждены все неполные сегменты (даже если полные не подтверждены).
+
+\begin{Verbatim}
+увидеть хотя бы нейгла
+\end{Verbatim}
+
+\section{Аггрессивная буферизация}
+
+Где что дампим.  Дампить без -t обязательно!
+
+\begin{Verbatim}
+cork
+\end{Verbatim}
+
+\section{Отправка без задержки}
+
+Где что дампим.  Дампить без -t обязательно!
+
+\begin{Verbatim}
+увидеть, что nodelay не помогает, когда окно отправителя полное
+\end{Verbatim}
+
+\section{Быстрый повтор}
+
+Где что дампим.  Дампить без -t обязательно!
+
+\begin{Verbatim}
+увидеть быстрый повтор
+\end{Verbatim}
+
+\section{Обычный повтор}
+
+Где что дампим. Дампить без -t обязательно!
+
+\begin{Verbatim}
+увидеть не-быстрый повтор
+\end{Verbatim}
+
+\section{Неудачная попытка соединени с портом}
+
+Тут опт с попыткой соединения с портом, который никто не слушает.
+
+\section{Опыт с PMTU}
+
+Для опыта нужно на c3 и c4 отключить tcpclump.
+Надеюсь тут поможет команда iptables -F.
+Для сброса кеша MSS на с1 его можно тупо перегрузить.
+
+После этих подготовительных действий мы наверное увидим pmtu в действии при попытке соединится с c1 на c6.
+
+\begin{Verbatim}
+Дампить (tcp or icmp) на c2 eth0.
+\end{Verbatim}
+
+\section{Соединение с неверным портом}
+
+Что будет, если клиент пытается соединиться с портом, который не слушвет сервер.
+
+\begin{Verbatim}
+Дампить
+\end{Verbatim}
+
+\end{document}
